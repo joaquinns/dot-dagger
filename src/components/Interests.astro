@@ -1,0 +1,239 @@
+<section
+  id="intereses"
+  class="relative min-h-screen bg-transparent overflow-hidden flex flex-col justify-center items-center gap-4"
+>
+  <h1
+    class="text-3xl leading-[3rem] md:text-4xl text-wrap text-left font-bold bg-gradient-to-r from-[#00c2ba] to-[#8ad504] text-transparent bg-clip-text pt-4 pb-16"
+  >
+    Mis intereses
+  </h1>
+  <div
+    class="flex flex-col md:flex-row justify-center items-center w-full h-full gap-4"
+  >
+    <ul class="flex flex-col justify-center items-center flex-1 w-full gap-4">
+      <li class="w-full">
+        <button
+          data-description="Soy el mago del código C#, domador de excepciones y arquitecto de soluciones complicadas que nadie entiende (ni yo después de un café). Y sí, también soy fanático de los pepinos, porque nada dice elegancia en código como un buen pepino crujiente."
+          data-video="/programacion.mp4"
+          class="w-full h-full text-center py-8 programming border-b border-solid border-slate-100/50 rounded"
+        >
+          Programming
+        </button>
+        <p
+          class="description text-center text-slate-800 mt-2 hidden font-semibold py-4 text-lg"
+        >
+        </p>
+      </li>
+      <li class="w-full">
+        <button
+          data-description="Cuando no estoy destrozando teclados, estoy tocando melodías en mi guitarra, porque ¿quién no ama una buena jam session? Ah, y por si fuera poco, tengo una extraña fascinación por los pepinos. Sí, esos verdes y crujientes compañeros que combinan perfectamente con mis complejas líneas de código y mis riffs de guitarra."
+          data-video="/guitar.mp4"
+          class="w-full h-full text-center py-8 guitar border-b border-solid border-slate-100/50 rounded"
+        >
+          Guitar
+        </button>
+        <p
+          class="description text-center text-slate-800 mt-2 hidden font-semibold py-4 text-lg"
+        >
+        </p>
+      </li>
+      <li class="w-full">
+        <button
+          data-description="Tambien cuando no estoy domando el código (ni a tu hermana), ni tocando mi guitarra (nuevamente ni a tu hermana). Es Porque, seamos sinceros, ¿qué mejor compañía para un programador sarcástico que unos felinos que siempre parecen juzgar tu código? Ah, y también tengo una extraña debilidad por los pepinos, porque incluso los gatos saben que son la guarnición perfecta para una tarde de programación y música."
+          data-video="/cats.mp4"
+          class="w-full h-full text-center py-8 cats border-b border-solid border-slate-100/50 rounded"
+        >
+          Cats
+        </button>
+        <p
+          class="description text-center text-slate-800 mt-2 hidden font-semibold py-4 text-lg"
+        >
+        </p>
+      </li>
+      <li class="w-full">
+        <button
+          data-description="Tambien suelo leer filosofia siempre en busca del significado sobre la vida. En mis momentos de reflexión a veces me dan ganas de ser un travuco pero tu hermana esta muy rica. Encuentro la serenidad en la compañía de pepinos, esos verdes y crujientes símbolos de simplicidad y pureza. Así que, mienbtras reflexiono sobre paradojas y código. Analizo grandes preguntas de la existencia y de porque algunos travucos son mas bonitos que algunas pibas"
+          data-video="/filosofo.mp4"
+          class="w-full h-full text-center py-8 border-b border-solid border-slate-100/50 rounded filosofia"
+        >
+          Filosofia
+        </button>
+        <p
+          class="description text-center text-slate-800 mt-2 hidden font-semibold py-4 text-lg"
+        >
+        </p>
+      </li>
+    </ul>
+    <div
+      id="video-container"
+      class="flex-1 w-full h-full flex items-center justify-center md:aspect-video"
+    >
+      <video
+        id="video"
+        src="/programacion.mp4"
+        autoplay
+        loop
+        muted
+        controls
+        class="h-auto w-[300px] rounded opacity-0 transform translate-x-full transition-all duration-500"
+      ></video>
+    </div>
+  </div>
+</section>
+
+<style>
+  .programming,
+  .cats,
+  .guitar,
+  .filosofia {
+    position: relative;
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    overflow: hidden;
+  }
+
+  .programming::before,
+  .cats::before,
+  .guitar::before,
+  .filosofia::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Coloca el fondo detrás del texto */
+    transition: opacity 0.4s ease-in-out;
+    opacity: 0.9;
+  }
+
+  .programming::before {
+    background:
+      linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      url("/programacion.jpg") center/cover no-repeat;
+  }
+
+  .cats::before {
+    background:
+      linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      url("/cats.jpg") center/cover no-repeat;
+  }
+
+  .guitar::before {
+    background:
+      linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      url("/guitar.webp") center/cover no-repeat;
+  }
+
+  .filosofia::before {
+    background:
+      linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      url("/filosofia.jpg") bottom/cover no-repeat;
+  }
+
+  .programming:hover::before,
+  .cats:hover::before,
+  .guitar:hover::before,
+  .filosofia:hover::before {
+    opacity: 1; /* Reduce el overlay al pasar el cursor */
+  }
+
+  .video-enter {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  /* Estado inicial para salida */
+  .video-exit {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+
+  .description {
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: all 0.4s ease;
+  }
+
+  .description.fade-in {
+    opacity: 1;
+    height: auto; /* Necesario para evitar el salto de la animacion */
+    transform: translateY(0);
+  }
+
+  .description.hidden {
+    opacity: 0;
+    transform: translateY(-20px);
+    height: 0;
+  }
+</style>
+
+<script>
+  // @ts-nocheck
+  const buttons = document.querySelectorAll("button[data-video]");
+  const video = document.getElementById("video");
+  const videoContainer = document.getElementById("video-container");
+
+  const initialButton = buttons[0]; // Asume que el primer boton es el primero que se muestra
+  if (initialButton) {
+    const initialDescription = initialButton.getAttribute("data-description");
+    const descriptionElement = initialButton.nextElementSibling;
+
+    // Muestra la descripción inicial
+    descriptionElement.textContent = initialDescription;
+    descriptionElement.classList.remove("hidden");
+    descriptionElement.classList.add("fade-in");
+
+    // Activa la animación de entrada del video al cargar la pagina por primera vez
+    setTimeout(() => {
+      video.classList.add("video-enter");
+    }, 100);
+  }
+
+  buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const newVideoSrc = button.getAttribute("data-video");
+      const descriptionText = button.getAttribute("data-description");
+      const descriptionElement = button.nextElementSibling;
+
+      // Si el video y la descripción ya están activos, no hacemos nada
+      if (
+        video.getAttribute("src") === newVideoSrc &&
+        !descriptionElement.classList.contains("hidden")
+      ) {
+        return;
+      }
+
+      // Actualizar la descripción con animación
+      document.querySelectorAll(".description").forEach((desc) => {
+        desc.classList.remove("fade-in");
+        setTimeout(() => {
+          desc.classList.add("hidden");
+        }, 250);
+      });
+
+      setTimeout(() => {
+        descriptionElement.textContent = descriptionText;
+        descriptionElement.classList.remove("hidden");
+        descriptionElement.classList.add("fade-in");
+      }, 250); // Retraso para suavizar la transición del texto
+
+      // Cambiar el video si es diferente
+      if (video.getAttribute("src") !== newVideoSrc) {
+        video.classList.remove("video-enter");
+        video.classList.add("video-exit");
+
+        setTimeout(() => {
+          video.src = newVideoSrc;
+          video.load();
+          video.play();
+
+          video.classList.remove("video-exit");
+          video.classList.add("video-enter");
+        }, 400);
+      }
+    });
+  });
+</script>

@@ -1,0 +1,47 @@
+<div class="absolute top-0 left-0 right-0 bottom-0 z-10">
+  <div
+    class="flex flex-col gap-3 items-center justify-center absolute left-[-5rem] bottom-[-1rem] rotate-[50deg] z-10"
+  >
+    <div
+      class="flex flex-col gap-3 items-center justify-center translate-y-[10%]"
+    >
+      <img
+        class="w-[150px] h-[200px]"
+        src="/picklejar.webp"
+        alt="pickle jar image"
+      />
+    </div>
+  </div>
+  <div
+    class="flex flex-col gap-3 items-center justify-center absolute right-[-5rem] top-[-5rem] rotate-[50deg] z-10"
+  >
+    <div
+      class="flex flex-col gap-3 items-center justify-center translate-y-[-10%]"
+    >
+      <img
+        class="w-[150px] h-[200px]"
+        src="/picklejar.webp"
+        alt="pickle jar image"
+      />
+    </div>
+  </div>
+</div>
+
+<style>
+  .carousel {
+    will-change: transform;
+    animation: scroll 8s linear infinite; /* Animación continua */
+  }
+
+  @keyframes scroll {
+    0% {
+      transform: translateY(90%); /* Mueve la primera imagen hacia arriba */
+    }
+
+    100% {
+      transform: translateY(
+        -130%
+      ); /* Mueve la tercera imagen fuera de la vista */
+    }
+  }
+</style>
